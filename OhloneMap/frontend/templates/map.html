@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Ohlone Map</title>
+    <style>
+        .img {
+            width: 100vw;
+            height: 100vh;
+            background-image: url({{img}});
+            background-size: cover;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Welcome To The Ohlone Map</h2>
+    <form action="/map?From={{From}}&To={{To}}&i={{i+1}}">
+        <button type="submit">Next</button>
+    </form>
+    <div> <img src="{{img}}" style="width: 100vw;"></div>
+</body>
+ 
+</html>
