@@ -12,13 +12,19 @@ def find_path(initial: str, end: str, avoid_stairs=False) -> list[str]:
     
     while current_node != end:
         visited.add(current_node)
-        destinations = graph[current_node]
+
+        # temporary try-except to handle missing files
+        try:
+            destinations = graph[current_node]
+        except:
+            destinations = {}
+        
         weight_to_current_node = shortest_paths[current_node][1]
 
         for next_node in destinations:
             # ignore stairs if needed
             if avoid_stairs and find_node(next_node)['type'] == 'stairs':
-                pass
+                continue
 
             weight = float(graph[current_node][next_node]) + weight_to_current_node
             if next_node not in shortest_paths:
@@ -40,6 +46,7 @@ def find_path(initial: str, end: str, avoid_stairs=False) -> list[str]:
         path.append(current_node)
         next_node = shortest_paths[current_node][0]
         current_node = next_node
+    
     # Reverse path
     path = path[::-1]
     return path

@@ -24,12 +24,12 @@ def map():
         i = 0
     
     #if segments == []:
-    if True:
-        path = find_path(start, end)
-        if path is None:
-            return flask.render_template("index.html")
+    path = find_path(start, end)
+    if path is None:
+        return flask.render_template("index.html")
 
-        segments = segment_path(path)
+    segments = segment_path(path)
+    print(segments)
     
     if i > len(segments):
         return flask.render_template("index.html")
