@@ -25,15 +25,13 @@ def map():
     else:
         i = int(i)
     
-    #if segments == []:
     path = find_path(start, end)
     if path is None:
         return flask.render_template("index.html")
 
     segments = segment_path(path)
-    print(segments)
     
-    if i > len(segments):
+    if i >= len(segments):
         return flask.render_template("index.html")
 
     img = build_image(segments[i])
