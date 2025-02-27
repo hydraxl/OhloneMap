@@ -11,7 +11,6 @@ def pillow_image_to_base64_string(img):
     img.save(buffered, format="JPEG")
     return base64.b64encode(buffered.getvalue()).decode("utf-8")
 
-
 def base64_string_to_pillow_image(base64_str):
     return Image.open(io.BytesIO(base64.decodebytes(bytes(base64_str, "utf-8"))))
 
