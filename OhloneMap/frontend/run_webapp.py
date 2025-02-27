@@ -22,6 +22,8 @@ def map():
     i = flask.request.args.get('i')
     if i is None:
         i = 0
+    else:
+        i = int(i)
     
     #if segments == []:
     path = find_path(start, end)
@@ -35,7 +37,7 @@ def map():
         return flask.render_template("index.html")
 
     img = build_image(segments[i])
-    return flask.render_template(f"map.html", From=start, To=end, i=i, img=img)
+    return flask.render_template(f"map.html", From=start, To=end, i=i+1, img=img)
 
 def run_webapp():
     app.run()
